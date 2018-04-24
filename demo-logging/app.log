@@ -1,0 +1,6 @@
+11:05:07.404 [main] INFO  dev.console.App -
+				Bonjour Slf4J !
+11:05:07.404 [main] INFO  dev.console.App -
+				Implémentation Logback
+11:05:07.404 [main] DEBUG dev.service.AppService -
+				Traitement 1 : param = valeur 1
