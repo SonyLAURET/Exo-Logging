@@ -40,8 +40,10 @@ public class testDemoTestUnitaire extends TestCase {
 		assertEquals(StringUtils.levenshteinDistance("distance", "e"), 7);
 
 	}
+	
+	@org.junit.Test (expected = NullPointerException.class)
 	public void testAppNull() {
-		assertEquals(StringUtils.levenshteinDistance("distance", null), 7);
+		assertEquals(StringUtils.levenshteinDistance(null, null), -1);
 
 	}
 }
