@@ -12,7 +12,7 @@ public class CalculService {
 
 	public int additionner(String expression) throws CalculException{
 				
-			LOG.debug("Evaluation de l'expression", expression);
+			LOG.debug("Evaluation de l'expression", expression.toString());
 			if(expression.contains("*")){
 				throw new CalculException();
 			}

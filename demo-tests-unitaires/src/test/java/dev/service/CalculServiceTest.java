@@ -1,6 +1,7 @@
 package dev.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class CalculServiceTest {
 		int somme = c.additionner("1+3+4");
 
 		LOG.info("Alors j'obtiens le résultat 8");
-		assertEquals(somme, 8);
+		assertThat(somme).isEqualTo(8);
 	}
 	
 	@Test
