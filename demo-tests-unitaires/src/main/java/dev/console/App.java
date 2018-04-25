@@ -1,6 +1,10 @@
 package dev.console;
 
+import dev.exception.CalculException;
 import dev.service.CalculService;
+
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.when;
 
 import java.util.Scanner;
 
@@ -26,7 +30,11 @@ public class App {
 		afficherTitre();
 	}
 
-	protected void evaluer(String expression) {
-	}
+	protected void evaluer(String expression) throws CalculException {
+		if (expression.contains("*")) {
+			throw new CalculException();			
+		}
+		System.out.print(expression + "=" + calculatrice.additionner(expression));
 
+	}
 }

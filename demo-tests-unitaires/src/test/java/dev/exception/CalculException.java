@@ -1,9 +1,19 @@
 package dev.exception;
 
-public class CalculException extends Exception{
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-	public String CalculException() {
-	return "invalid";
+import dev.service.CalculService;
+
+public class CalculException extends Exception{
+	
+	public CalculException() {
+		super();
+	}
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CalculService.class);
+	public CalculException(String expression) {
+		LOG.info("L’expression  " +expression+" est invalide");
 	}
 	
 }

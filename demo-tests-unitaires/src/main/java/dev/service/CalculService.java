@@ -12,14 +12,15 @@ public class CalculService {
 
 	public int additionner(String expression) throws CalculException{
 				
-			LOG.debug("Evaluation de l'expression", expression.toString());
+			LOG.debug("Evaluation de l'expression", expression);
 			if(expression.contains("*")){
-				throw new CalculException();
+				throw new CalculException(expression);
 			}
 			int somme =0;
 			for (int i = 0; i < expression.length(); i++) {
-				if (expression.charAt(i)!='+') {
-					somme+=Character.getNumericValue(expression.charAt(i));					
+				if ((expression.charAt(i)!='+') ) {	
+					somme+=Character.getNumericValue(expression.charAt(i));
+					
 				}				
 			}
 			
