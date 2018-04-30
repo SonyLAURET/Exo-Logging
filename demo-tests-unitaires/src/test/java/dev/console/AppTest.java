@@ -71,8 +71,16 @@ public class AppTest {
 		
 		LOG.info("Alors dans la console, s'affiche 1+34=35");
 		assertThat(systemOutRule.getLog()).contains("L’expression  est invalide");
-		
-		
+			
 	}
+	@Test
+	public void testEvaluerFin() throws Exception {
 	
+		
+		String expression = "fin";		
+		this.app.evaluer(expression);
+		assertThat(systemOutRule.getLog()).contains("Au revoir :-(");
+		
+			
+	}
 }

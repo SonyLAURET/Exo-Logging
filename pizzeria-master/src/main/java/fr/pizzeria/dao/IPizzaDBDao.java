@@ -61,6 +61,12 @@ public class IPizzaDBDao implements IPizzaDao {
 			}
 			resultat.close();
 		} catch (SQLException e) {
+			try {
+				myConnection.rollback();
+			} catch (SQLException e1) {
+				LOG.error("Exeption findAllPizzas rollBack est", e);
+				e1.printStackTrace();
+			}
 			LOG.error("Exeption findAllPizzas est", e);
 		}
 		return pizzas;
@@ -78,6 +84,12 @@ public class IPizzaDBDao implements IPizzaDao {
 			newPizza.setDouble(3, pizza.getPrix());
 			newPizza.executeQuery();
 		} catch (SQLException e) {
+			try {
+				myConnection.rollback();
+			} catch (SQLException e1) {
+				LOG.error("Exeption saveNewPizza rollBack est", e);
+				e1.printStackTrace();
+			}
 			LOG.error("Error saveNewPizza est", e);
 		}
 
@@ -94,6 +106,12 @@ public class IPizzaDBDao implements IPizzaDao {
 			upPizza.setString(4, codePizza);
 			upPizza.execute();
 		} catch (SQLException e) {
+			try {
+				myConnection.rollback();
+			} catch (SQLException e1) {
+				LOG.error("Exeption updatePizza rollBack est", e);
+				e1.printStackTrace();
+			}
 			LOG.error("Exeption updatePizza est", e);
 		}
 
@@ -106,6 +124,12 @@ public class IPizzaDBDao implements IPizzaDao {
 			delete.setString(1, codePizza);
 			delete.execute();
 		} catch (SQLException e) {
+			try {
+				myConnection.rollback();
+			} catch (SQLException e1) {
+				LOG.error("Exeption deletePizza rollBack est", e);
+				e1.printStackTrace();
+			}
 			LOG.error("Exeption delete est", e);
 		}
 
@@ -125,6 +149,12 @@ public class IPizzaDBDao implements IPizzaDao {
 			return new Pizza(id, code, libelle, price);
 
 		} catch (SQLException e) {
+			try {
+				myConnection.rollback();
+			} catch (SQLException e1) {
+				LOG.error("Exeption findPizzaByCode rollBack est", e);
+				e1.printStackTrace();
+			}
 			LOG.error("FinPizza est:", e);
 		}
 		return null;
@@ -137,6 +167,12 @@ public class IPizzaDBDao implements IPizzaDao {
 			pizzaExist.setString(1, codePizza);
 			return pizzaExist.execute();
 		} catch (SQLException e) {
+			try {
+				myConnection.rollback();
+			} catch (SQLException e1) {
+				LOG.error("Exeption pizzaExists rollBack est", e);
+				e1.printStackTrace();
+			}
 			LOG.error("pizzaExist exception :", e);
 		}
 		return false;

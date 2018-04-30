@@ -32,9 +32,11 @@ public class App {
 
 	protected void evaluer(String expression) throws CalculException {
 		if (expression.contains("*")) {
-			throw new CalculException();			
+			throw new CalculException();
+		} else if (expression.contains("fin")) {
+			System.out.print("Au revoir :-(");
+		} else {
+			System.out.print(expression + "=" + calculatrice.additionner(expression));
 		}
-		System.out.print(expression + "=" + calculatrice.additionner(expression));
-
 	}
 }
